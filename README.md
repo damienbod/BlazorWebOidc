@@ -5,3 +5,7 @@
 ## Links
 
 https://github.com/dotnet/blazor-samples/tree/main/8.0/BlazorWebAppOidc
+
+https://damienbod.com/2024/02/19/using-a-csp-nonce-in-blazor-web/
+
+https://github.com/damienbod/BlazorServerOidc
