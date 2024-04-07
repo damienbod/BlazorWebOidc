@@ -106,7 +106,6 @@ app.MapGet("/weather-forecast", ([FromServices] IWeatherForecaster WeatherForeca
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
-    .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(BlazorWebAppOidc.Client._Imports).Assembly);
 
 app.MapGroup("/authentication").MapLoginAndLogout();
