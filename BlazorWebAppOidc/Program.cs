@@ -9,6 +9,9 @@ using BlazorWebAppOidc.Weather;
 using BlazorWebAppOidc.Client.Weather;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
+using BlazorWebAppOidc.CspServices;
+using Microsoft.AspNetCore.Components.Server.Circuits;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 const string OIDC_SCHEME = "MicrosoftOidc";
 
@@ -53,6 +56,11 @@ builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+builder.Services.TryAddEnumerable(ServiceDescriptor.Scoped<CircuitHandler, BlazorNonceService>(sp =>
+     sp.GetRequiredService<BlazorNonceService>()));
+
+builder.Services.AddScoped<BlazorNonceService>();
+
 builder.Services.AddScoped<AuthenticationStateProvider, PersistingAuthenticationStateProvider>();
 
 builder.Services.AddScoped<IWeatherForecaster, ServerWeatherForecaster>();
@@ -76,6 +84,12 @@ else
 }
 
 app.UseHttpsRedirection();
+
+app.UseSecurityHeaders(
+    SecurityHeadersDefinitions.GetHeaderPolicyCollection(app.Environment.IsDevelopment(),
+        app.Configuration["OpenIDConnectSettings:Authority"]));
+
+app.UseMiddleware<NonceMiddleware>();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
