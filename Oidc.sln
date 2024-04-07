@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_solutionItems", "_solution
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityProvider", "IdentityProvider\IdentityProvider.csproj", "{D88031EA-4C2F-4D91-9642-A37A5938C568}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7B3838A1-D145-479C-9B79-6D2CD1775B71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B3838A1-D145-479C-9B79-6D2CD1775B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B3838A1-D145-479C-9B79-6D2CD1775B71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D88031EA-4C2F-4D91-9642-A37A5938C568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D88031EA-4C2F-4D91-9642-A37A5938C568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D88031EA-4C2F-4D91-9642-A37A5938C568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D88031EA-4C2F-4D91-9642-A37A5938C568}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
