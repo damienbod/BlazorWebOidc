@@ -1,7 +1,7 @@
+using BlazorWebAppOidc;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-using BlazorWebAppOidc;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

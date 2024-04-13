@@ -1,15 +1,15 @@
-using Microsoft.AspNetCore.Components.Authorization;
 using BlazorWebAppOidc;
-using BlazorWebAppOidc.Components;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Mvc;
-using BlazorWebAppOidc.Weather;
 using BlazorWebAppOidc.Client.Weather;
-using Microsoft.IdentityModel.Tokens;
+using BlazorWebAppOidc.Components;
 using BlazorWebAppOidc.CspServices;
+using BlazorWebAppOidc.Weather;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server.Circuits;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using Microsoft.IdentityModel.Tokens;
 
 const string OIDC_SCHEME = "MicrosoftOidc";
 
