@@ -2,6 +2,8 @@
 
 [![.NET](https://github.com/damienbod/BlazorWebOidc/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/BlazorWebOidc/actions/workflows/dotnet.yml)
 
+[Implement a secure Blazor Web application using OpenID Connect and security headers](https://damienbod.com)
+
 ## Step 1 Init solution from the .NET Blazor samples
 
 https://github.com/dotnet/blazor-samples/tree/main/8.0/BlazorWebAppOidc
