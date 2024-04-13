@@ -2,12 +2,10 @@ using Microsoft.AspNetCore.Components.Authorization;
 using BlazorWebAppOidc;
 using BlazorWebAppOidc.Components;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using BlazorWebAppOidc.Weather;
 using BlazorWebAppOidc.Client.Weather;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
 using BlazorWebAppOidc.CspServices;
 using Microsoft.AspNetCore.Components.Server.Circuits;
@@ -17,7 +15,6 @@ const string OIDC_SCHEME = "MicrosoftOidc";
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddAuthentication(OIDC_SCHEME)
     .AddOpenIdConnect(OIDC_SCHEME, options =>
     {
@@ -50,28 +47,23 @@ builder.Services.AddAuthentication(OIDC_SCHEME)
 builder.Services.ConfigureCookieOidcRefresh(CookieAuthenticationDefaults.AuthenticationScheme, OIDC_SCHEME);
 
 builder.Services.AddAuthorization();
-
 builder.Services.AddCascadingAuthenticationState();
-
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.TryAddEnumerable(ServiceDescriptor.Scoped<CircuitHandler, BlazorNonceService>(sp =>
      sp.GetRequiredService<BlazorNonceService>()));
-
 builder.Services.AddScoped<BlazorNonceService>();
 
 builder.Services.AddScoped<AuthenticationStateProvider, PersistingAuthenticationStateProvider>();
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<IWeatherForecaster, ServerWeatherForecaster>();
-
-builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
 //JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseWebAssemblyDebugging();
@@ -79,7 +71,6 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
