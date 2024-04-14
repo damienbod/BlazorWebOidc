@@ -73,7 +73,6 @@ In **App.razor**:
 
 to
 
-
 ```
     <HeadOutlet @rendermode="InteractiveServer" />
 </head>
@@ -85,6 +84,18 @@ to
 
 Blazor Web WASM does not support CSP nonces. If you require this, then you need to disable security features.
 
+```csharp
+builder.Services.TryAddEnumerable(ServiceDescriptor.Scoped<CircuitHandler, BlazorNonceService>(sp =>
+     sp.GetRequiredService<BlazorNonceService>()));
+builder.Services.AddScoped<BlazorNonceService>();
+```
+
+```csharp
+app.UseMiddleware<NonceMiddleware>();
+```
+
+Nonce services are in the **CspServices** folder in the BlazorWebAppOidc project.
+
 ## Step 5: Add security headers
 
 Security headers can reduce the attack surface in the application. This is applied as best possible for the tech stack requirements.
@@ -95,6 +106,8 @@ app.UseSecurityHeaders(
         app.Environment.IsDevelopment(),
         app.Configuration["OpenIDConnectSettings:Authority"]));
 ```
+
+See **SecurityHeadersDefinitions.cs**
 
 ## Links
 
