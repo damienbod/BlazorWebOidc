@@ -28,6 +28,53 @@ builder.Services.AddAuthentication(OIDC_SCHEME)
 
 Blazor Web WASM does not support CSP nonces. If you require this, then you need to disable security features.
 
+Switch to server components:
+
+```csharp
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents()
+    .AddInteractiveWebAssemblyComponents();
+```
+
+to
+
+```csharp
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
+```
+
+```csharp
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode()
+    .AddInteractiveWebAssemblyRenderMode()
+    .AddAdditionalAssemblies(typeof(Counter).Assembly);
+```
+
+to
+
+```csharp
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode()
+    .AddAdditionalAssemblies(typeof(Counter).Assembly);
+```
+
+```
+    <HeadOutlet @rendermode="InteractiveAuto" />
+</head>
+<body>
+    <Routes @rendermode="InteractiveAuto" />
+```
+
+to
+
+
+```
+    <HeadOutlet @rendermode="InteractiveServer" />
+</head>
+<body>
+    <Routes @rendermode="InteractiveServer" />
+```
+
 ## Step 4: Add CSP nonce middleware
 
 Blazor Web WASM does not support CSP nonces. If you require this, then you need to disable security features.
