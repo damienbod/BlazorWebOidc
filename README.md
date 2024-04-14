@@ -21,7 +21,7 @@ builder.Services.AddAuthentication(OIDC_SCHEME)
 })
 .AddCookie();
 ```
-> Note
+> Note:
 > Each identity provider uses different OIDC configurations and events.
 
 ## Step 3: Disable WASM mode
