@@ -30,7 +30,7 @@ Blazor Web WASM does not support CSP nonces. If you require this, then you need 
 
 Switch to server components:
 
-In the Program.cs
+In the **Program.cs**, switch
 
 ```csharp
 builder.Services.AddRazorComponents()
@@ -45,7 +45,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 ```
 
-In the Program.cs
+In the **Program.cs**, switch
 
 ```csharp
 app.MapRazorComponents<App>()
