@@ -4,6 +4,8 @@
 
 [Implement a secure Blazor Web application using OpenID Connect and security headers](https://damienbod.com)
 
+![image.png](images/context.png)
+
 ## Step 1: Init solution from the .NET Blazor samples
 
 https://github.com/dotnet/blazor-samples/tree/main/8.0/BlazorWebAppOidc
