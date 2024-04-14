@@ -4,11 +4,11 @@
 
 [Implement a secure Blazor Web application using OpenID Connect and security headers](https://damienbod.com)
 
-## Step 1 Init solution from the .NET Blazor samples
+## Step 1: Init solution from the .NET Blazor samples
 
 https://github.com/dotnet/blazor-samples/tree/main/8.0/BlazorWebAppOidc
 
-## Step 2 Switch the OIDC server
+## Step 2: Switch the OIDC server
 
 Set this as the used client recommends. If using the default, something like this:
 
@@ -24,15 +24,15 @@ builder.Services.AddAuthentication(OIDC_SCHEME)
 > Note
 > Each identity provider uses different OIDC configurations and events.
 
-## Step 3 Disable WASM mode
+## Step 3: Disable WASM mode
 
 Blazor Web WASM does not support CSP nonces. If you require this, then you need to disable security features.
 
-## Step 4 Add CSP nonce middleware
+## Step 4: Add CSP nonce middleware
 
 Blazor Web WASM does not support CSP nonces. If you require this, then you need to disable security features.
 
-## Step 5 Add security headers
+## Step 5: Add security headers
 
 Security headers can reduce the attack surface in the application. This is applied as best possible for the tech stack requirements.
 
