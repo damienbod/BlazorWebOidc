@@ -12,7 +12,7 @@ https://github.com/dotnet/blazor-samples/tree/main/8.0/BlazorWebAppOidc
 
 Set this as the used client recommends. If using the default, something like this:
 
-´´´csharp
+```csharp
 builder.Services.AddAuthentication(OIDC_SCHEME)
 .AddOpenIdConnect(OIDC_SCHEME, options =>
 {
@@ -20,7 +20,7 @@ builder.Services.AddAuthentication(OIDC_SCHEME)
     builder.Configuration.GetSection("OpenIDConnectSettings").Bind(options);
 })
 .AddCookie();
-´´´
+```
 > Note
 > Each identity provider uses different OIDC configurations and events.
 
@@ -36,12 +36,12 @@ Blazor Web WASM does not support CSP nonces. If you require this, then you need 
 
 Security headers can reduce the attack surface in the application. This is applied as best possible for the tech stack requirements.
 
-´´´csharp
+```csharp
 app.UseSecurityHeaders(
     SecurityHeadersDefinitions.GetHeaderPolicyCollection(
         app.Environment.IsDevelopment(),
         app.Configuration["OpenIDConnectSettings:Authority"]));
-´´´
+```
 
 ## Links
 
