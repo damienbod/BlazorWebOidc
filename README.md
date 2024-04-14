@@ -8,9 +8,9 @@
 
 https://github.com/dotnet/blazor-samples/tree/main/8.0/BlazorWebAppOidc
 
-## Step 2: Switch the OIDC server
+## Step 2: Switch the OpenID Connect server
 
-Set this as the used client recommends. If using the default, something like this:
+Set this as the used OIDC client recommends. If using the default, something like this:
 
 ```csharp
 builder.Services.AddAuthentication(OIDC_SCHEME)
