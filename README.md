@@ -111,6 +111,10 @@ app.UseSecurityHeaders(
 
 See **SecurityHeadersDefinitions.cs**
 
+## History
+
+- 2024-05-26 Updated packages
+
 ## Links
 
 https://github.com/dotnet/blazor-samples/tree/main/8.0/BlazorWebAppOidc
