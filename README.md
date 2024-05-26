@@ -2,7 +2,7 @@
 
 [![.NET](https://github.com/damienbod/BlazorWebOidc/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/BlazorWebOidc/actions/workflows/dotnet.yml)
 
-[Implement a secure Blazor Web application using OpenID Connect and security headers](https://damienbod.com)
+[Implement a secure Blazor Web application using OpenID Connect and security headers](https://damienbod.com/2024/04/15/implement-a-secure-blazor-web-application-using-openid-connect-and-security-headers/)
 
 ![image.png](images/context.png)
 
