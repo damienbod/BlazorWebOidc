@@ -113,6 +113,7 @@ See **SecurityHeadersDefinitions.cs**
 
 ## History
 
+- 2024-08-14 Updated packages
 - 2024-06-30 Updated packages
 - 2024-05-26 Updated packages
 
