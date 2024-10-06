@@ -10,10 +10,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
+using NetEscapades.AspNetCore.SecurityHeaders.Infrastructure;
 
 const string OIDC_SCHEME = "MicrosoftOidc";
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSecurityHeaderPolicies()
+  .SetPolicySelector((PolicySelectorContext ctx) =>
+  {
+      return SecurityHeadersDefinitions.GetHeaderPolicyCollection(
+          builder.Environment.IsDevelopment(),
+          builder.Configuration["OpenIDConnectSettings:Authority"]);
+  });
+
 
 builder.Services.AddAuthentication(OIDC_SCHEME)
     .AddOpenIdConnect(OIDC_SCHEME, options =>
@@ -76,9 +86,7 @@ else
 
 app.UseHttpsRedirection();
 
-app.UseSecurityHeaders(
-    SecurityHeadersDefinitions.GetHeaderPolicyCollection(app.Environment.IsDevelopment(),
-        app.Configuration["OpenIDConnectSettings:Authority"]));
+app.UseSecurityHeaders();
 
 app.UseMiddleware<NonceMiddleware>();
 
